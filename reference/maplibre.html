@@ -44,7 +44,7 @@
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">maplibre</span><span class="op">(</span></span>
 <span>  map_options <span class="op">=</span> <span class="fu">mapOptions</span><span class="op">(</span><span class="op">)</span>,</span>
-<span>  width <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  width <span class="op">=</span> <span class="st">"100%"</span>,</span>
 <span>  height <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  elementId <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  <span class="va">...</span></span>
@@ -54,7 +54,7 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">test</span> <span class="op">&lt;-</span> <span class="fu">mapOptions</span><span class="op">(</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">map_options</span> <span class="op">&lt;-</span> <span class="fu">mapOptions</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  center <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">123.1256</span>, <span class="fl">49.24658</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  hash <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
 <span class="r-in"><span>  pitch <span class="op">=</span> <span class="fl">0</span>,</span></span>
@@ -62,9 +62,10 @@
 <span class="r-in"><span>  test <span class="op">=</span> <span class="cn">NULL</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in mapOptions(center = c(-123.1256, 49.24658), hash = TRUE, pitch = 0,     style = basemaps$carto$dark_matter, test = NULL):</span> could not find function "mapOptions"</span>
-<span class="r-in"><span><span class="fu">maplibre</span><span class="op">(</span><span class="va">test</span>, zoom <span class="op">=</span> <span class="fl">12</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
+<span class="r-in"><span><span class="fu">maplibre</span><span class="op">(</span><span class="va">map_options</span>, zoom <span class="op">=</span> <span class="fl">12</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="add_control.html">add_control</a></span><span class="op">(</span><span class="st">"NavigationControl"</span>, <span class="st">"top-left"</span>, showCompass <span class="op">=</span> <span class="cn">F</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(expr, envir, enclos):</span> object 'test' not found</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in eval(expr, envir, enclos):</span> object 'map_options' not found</span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

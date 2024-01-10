@@ -16,6 +16,9 @@
     <loc>https://eodagmbh.github.io/r-maplibregl/index.html</loc>
   </url>
   <url>
+    <loc>https://eodagmbh.github.io/r-maplibregl/reference/Marker.html</loc>
+  </url>
+  <url>
     <loc>https://eodagmbh.github.io/r-maplibregl/reference/add_call.html</loc>
   </url>
   <url>
@@ -25,6 +28,9 @@
     <loc>https://eodagmbh.github.io/r-maplibregl/reference/add_layer.html</loc>
   </url>
   <url>
+    <loc>https://eodagmbh.github.io/r-maplibregl/reference/add_marker.html</loc>
+  </url>
+  <url>
     <loc>https://eodagmbh.github.io/r-maplibregl/reference/basemaps.html</loc>
   </url>
   <url>
@@ -32,9 +38,6 @@
   </url>
   <url>
     <loc>https://eodagmbh.github.io/r-maplibregl/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://eodagmbh.github.io/r-maplibregl/reference/layer.html</loc>
   </url>
   <url>
     <loc>https://eodagmbh.github.io/r-maplibregl/reference/maplibre-shiny.html</loc>
