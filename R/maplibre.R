@@ -1,7 +1,5 @@
-mapOptions <- function(style = basemaps$carto$dark_matter, ...){
-  map_options <- list(style = style,
-                      ...)
-  return(map_options)
+mapOptions <- function(style = basemaps$carto$dark_matter, ...) {
+  list(style = style, ...)
 }
 
 
@@ -15,25 +13,25 @@ mapOptions <- function(style = basemaps$carto$dark_matter, ...){
 #' @example examples/basemap.R
 #'
 
-maplibre <- function(map_options, width = NULL, height = NULL, elementId = NULL, ...) {
+maplibre <- function(map_options = mapOptions(), width = NULL, height = NULL, elementId = NULL, ...) {
   if (inherits(map_options$bounds, "bbox")) {
     map_options$bounds <- unname(map_options$bounds)
   }
   map_options <- c(map_options, ...)
   map_options <- map_options[!sapply(map_options, is.null)]
 
-  x <-   list(
+  x <- list(
     mapOptions = map_options,
-    calls  = list()
+    calls = list()
   )
 
   # create widget
   htmlwidgets::createWidget(
-    name = 'maplibre',
+    name = "maplibre",
     x,
     width = width,
     height = height,
-    package = 'maplibre',
+    package = "maplibre",
     elementId = elementId
   )
 }
@@ -55,13 +53,15 @@ maplibre <- function(map_options, width = NULL, height = NULL, elementId = NULL,
 #' @name maplibre-shiny
 #'
 #' @export
-maplibreOutput <- function(outputId, width = '100%', height = '400px'){
-  htmlwidgets::shinyWidgetOutput(outputId, 'maplibre', width, height, package = 'maplibre')
+maplibreOutput <- function(outputId, width = "100%", height = "400px") {
+  htmlwidgets::shinyWidgetOutput(outputId, "maplibre", width, height, package = "maplibre")
 }
 
 #' @rdname maplibre-shiny
 #' @export
 renderMaplibre <- function(expr, env = parent.frame(), quoted = FALSE) {
-  if (!quoted) { expr <- substitute(expr) } # force quoted
+  if (!quoted) {
+    expr <- substitute(expr)
+  } # force quoted
   htmlwidgets::shinyRenderWidget(expr, maplibreOutput, env, quoted = TRUE)
 }
