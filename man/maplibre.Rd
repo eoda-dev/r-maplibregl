@@ -6,7 +6,7 @@
 \usage{
 maplibre(
   map_options = mapOptions(),
-  width = NULL,
+  width = "100\%",
   height = NULL,
   elementId = NULL,
   ...

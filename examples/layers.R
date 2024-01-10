@@ -5,7 +5,7 @@ earthquakes_source <- list(
   data = "https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson"
 )
 
-earthquakes_layer <- layer(
+earthquakes_layer <- Layer(
   id = "earthquakes",
   type = "circle",
   source = earthquakes_source,
@@ -14,3 +14,5 @@ earthquakes_layer <- layer(
 
 maplibre() |>
   add_layer(earthquakes_layer)
+
+
