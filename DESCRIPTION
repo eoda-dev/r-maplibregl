@@ -4,7 +4,7 @@ Title: Provides R bindings for MapLibre GL JS
 Version: 0.1.0
 Authors@R: c(
     person("Nico", "Friess", email = "nico.friess@eoda.de", role = c("aut", "cre")),
-    person("Stefan", "Kuethe", email = "stefan.kuethe@eoda.de", role = c("aut", "cre"))
+    person("Stefan", "Kuethe", email = "stefan.kuethe@eoda.de", role = c("aut"))
   )
 Maintainer: Nico Friess <nico.friess@eoda.de>
 Description: Provides R bindings for MapLibre GL JS
