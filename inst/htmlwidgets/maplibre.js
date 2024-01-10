@@ -1,4 +1,6 @@
-var RMapLibreGL = class {
+(() => {
+  // srcjs/pymaplibregl.js
+  var PyMapLibreGL = class {
     constructor(mapOptions) {
       this._id = mapOptions.container;
       this._map = new maplibregl.Map(mapOptions);
@@ -8,7 +10,7 @@ var RMapLibreGL = class {
       this._map.on("mouseout", () => {
         this._map.getCanvas().style.cursor = "";
       });
-      //this._map.addControl(new maplibregl.NavigationControl());
+      this._map.addControl(new maplibregl.NavigationControl());
     }
     getMap() {
       return this._map;
@@ -89,30 +91,26 @@ var RMapLibreGL = class {
     }
   };
 
-function maplibreWidget(widgetElement, width, height) {
-  let map = null;
-
-  function renderValue(widgetData) {
-    console.log(widgetData);
-    window.widgetData = widgetData
-    widgetData.mapOptions.container = widgetElement.id;
-    rMapLibreGL = new RMapLibreGL(widgetData.mapOptions);
-    window.map = rMapLibreGL.getMap();
-    window.map.on("load", () => {
-      rMapLibreGL.render(widgetData.calls)
-    });
+  // srcjs/rwidget.js
+  var MapLibreWidget = PyMapLibreGL;
+  function mapLibre4R(widgetElement, width, height) {
+    let map = null;
+    function renderValue(widgetData) {
+      console.log(widgetData);
+      widgetData.mapOptions.container = widgetElement.id;
+      const mapLibreWidget = new MapLibreWidget(widgetData.mapOptions);
+      const map2 = mapLibreWidget.getMap();
+      map2.on("load", () => {
+        mapLibreWidget.render(widgetData.calls);
+      });
+    }
+    function resize(width2, height2) {
+    }
+    return { renderValue, resize };
   }
-
-  function resize(width, height) {
-    // not implemented yet
-  }
-
-  return { renderValue, resize };
-}
-
-
-HTMLWidgets.widget({
-  name: 'maplibre',
-  type: 'output',
-  factory: maplibreWidget
-});
+  HTMLWidgets.widget({
+    name: "maplibre",
+    type: "output",
+    factory: mapLibre4R
+  });
+})();
