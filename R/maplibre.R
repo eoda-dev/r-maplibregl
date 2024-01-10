@@ -1,8 +1,3 @@
-mapOptions <- function(style = basemaps$carto$dark_matter, ...) {
-  list(style = style, ...)
-}
-
-
 #' <Add Title>
 #'
 #' <Add Description>
@@ -12,8 +7,7 @@ mapOptions <- function(style = basemaps$carto$dark_matter, ...) {
 #' @export
 #' @example examples/basemap.R
 #'
-
-maplibre <- function(map_options = mapOptions(), width = NULL, height = NULL, elementId = NULL, ...) {
+maplibre <- function(map_options = mapOptions(), width = "100%", height = NULL, elementId = NULL, ...) {
   if (inherits(map_options$bounds, "bbox")) {
     map_options$bounds <- unname(map_options$bounds)
   }
@@ -35,6 +29,11 @@ maplibre <- function(map_options = mapOptions(), width = NULL, height = NULL, el
     elementId = elementId
   )
 }
+
+mapOptions <- function(style = basemaps$carto$dark_matter, ...) {
+  list(style = style, ...)
+}
+
 
 #' Shiny bindings for maplibre
 #'
