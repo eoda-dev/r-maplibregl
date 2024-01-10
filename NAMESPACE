@@ -2,6 +2,8 @@
 
 export(add_call)
 export(add_control)
+export(add_layer)
+export(layer)
 export(maplibre)
 export(maplibreOutput)
 export(renderMaplibre)

@@ -4,7 +4,13 @@
 \alias{maplibre}
 \title{<Add Title>}
 \usage{
-maplibre(map_options, width = NULL, height = NULL, elementId = NULL, ...)
+maplibre(
+  map_options = mapOptions(),
+  width = NULL,
+  height = NULL,
+  elementId = NULL,
+  ...
+)
 }
 \description{
 <Add Description>
