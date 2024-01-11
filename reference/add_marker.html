@@ -24,7 +24,13 @@
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
-      <ul class="navbar-nav"></ul></div>
+      <ul class="navbar-nav"><li class="nav-item">
+  <a class="external-link nav-link" href="https://github.com/eodaGmbH/r-maplibregl/" aria-label="github">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul></div>
 
     
   </div>
@@ -32,7 +38,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Add a marker to map</h1>
-      
+      <small class="dont-index">Source: <a href="https://github.com/eodaGmbH/r-maplibregl/blob/HEAD/R/marker.R" class="external-link"><code>R/marker.R</code></a></small>
       <div class="d-none name"><code>add_marker.Rd</code></div>
     </div>
 
@@ -54,7 +60,7 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://eodagmbh.github.io/r-maplibregl/">maplibre</a></span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://eodagmbh.github.io/r-maplibregl">maplibre</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">marker</span> <span class="op">=</span> <span class="fu"><a href="Marker.html">Marker</a></span><span class="op">(</span></span></span>
 <span class="r-in"><span>  lngLat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">9.5</span>,<span class="fl">51.31667</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  popup <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>text <span class="op">=</span> <span class="st">"This is a marker"</span>,options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>closeButton <span class="op">=</span> <span class="cn">F</span><span class="op">)</span><span class="op">)</span>,</span></span>
@@ -63,8 +69,8 @@
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="maplibre.html">maplibre</a></span><span class="op">(</span><span class="fu"><a href="mapOptions.html">mapOptions</a></span><span class="op">(</span>center <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">9.5</span>,<span class="fl">51.31667</span><span class="op">)</span><span class="op">)</span>,zoom <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="op">|&gt;</span></span></span>
 <span class="r-in"><span>  <span class="fu">add_marker</span><span class="op">(</span><span class="va">marker</span><span class="op">)</span></span></span>
-<div id="htmlwidget-f0dbe7097caf65dd6e13" style="width:100%;height:432.632880098888px;" class="maplibre html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f0dbe7097caf65dd6e13">{"x":{"mapOptions":{"style":"https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json","center":[9.5,51.31667],"zoom":4},"calls":[["addMarker",[{"lngLat":[9.5,51.31667],"popup":{"text":"This is a marker","options":{"closeButton":false}},"options":{"color":"darkred"}}]]]},"evals":[],"jsHooks":[]}</script></code></pre></div>
+<div id="htmlwidget-2f424f5336226e7feb91" style="width:100%;height:432.632880098888px;" class="maplibre html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2f424f5336226e7feb91">{"x":{"mapOptions":{"style":"https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json","center":[9.5,51.31667],"zoom":4},"calls":[["addMarker",[{"lngLat":[9.5,51.31667],"popup":{"text":"This is a marker","options":{"closeButton":false}}}]]]},"evals":[],"jsHooks":[]}</script></code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
