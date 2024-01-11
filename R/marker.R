@@ -4,9 +4,9 @@
 #' @param popup
 #' @export
 #' @example examples/markers.R
-Marker <- function(lngLat, popup =NULL, ...) {
+Marker <- function(lngLat, popup = NULL, ...) {
   list(
-    lngLat  = lngLat,
+    lngLat = lngLat,
     popup = popup,
     options = MarkerOptions(...)
   ) |>
@@ -14,11 +14,17 @@ Marker <- function(lngLat, popup =NULL, ...) {
     set_maplibre_class("MapLibreMarker")
 }
 
-MarkerOptions <- function(...){
+MarkerOptions <- function(...) {
   marker_options <- list(...)
-  stopifnot(sapply(marker_options[c("anchor", "color", "pitchAlignment", "rotationAlignment")], function(x){is.null(x) | is.character(x)}))
-  stopifnot(sapply(marker_options["draggable"], function(x) {is.null(x) | is.logical(x)}))
-  stopifnot(sapply(marker_options[c("rotation", "scale")], function(x) {is.null(x) | is.numeric(x)}))
+  stopifnot(sapply(marker_options[c("anchor", "color", "pitchAlignment", "rotationAlignment")], function(x) {
+    is.null(x) | is.character(x)
+  }))
+  stopifnot(sapply(marker_options["draggable"], function(x) {
+    is.null(x) | is.logical(x)
+  }))
+  stopifnot(sapply(marker_options[c("rotation", "scale")], function(x) {
+    is.null(x) | is.numeric(x)
+  }))
   marker_options <- marker_options |>
     purrr::compact()
   class(marker_options) <- "MarkerOptions"
