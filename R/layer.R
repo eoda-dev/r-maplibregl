@@ -10,13 +10,16 @@
 #'
 #' @export
 Layer <- function(type, id, source = NULL, paint = NULL, layout = NULL, ...) {
-  list(
-    type = type,
-    id = id,
-    source = source,
-    paint = paint,
-    layout = layout
-  ) |>
+  types <- list(type = is.character, id = is.character, source = is.list, paint = is.list, layout = is.list)
+  c(rdantic(
+    list(
+      type = type,
+      id = id,
+      source = source,
+      paint = paint,
+      layout = layout
+    ), types
+  ), ...) |>
     purrr::compact() |>
     set_maplibre_class("MapLibreLayer")
 }
@@ -44,7 +47,7 @@ add_layer <- function(.map, layer) {
 #' @export
 #'
 #' @example examples/layers.R
-add_popup <- function(.map, layer_id, prop){
+add_popup <- function(.map, layer_id, prop) {
   .map |> add_call("addPopup", layer_id, prop)
 }
 
@@ -60,6 +63,6 @@ add_popup <- function(.map, layer_id, prop){
 #'
 #' @examples
 #' @example examples/layers.R
-add_tooltip <- function(.map, layer_id, prop){
+add_tooltip <- function(.map, layer_id, prop) {
   .map |> add_call("addTooltip", layer_id, prop)
 }
