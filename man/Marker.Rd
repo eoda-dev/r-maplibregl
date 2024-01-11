@@ -10,6 +10,7 @@ Marker(lngLat, popup, ...)
 Create a Marker
 }
 \examples{
+library(maplibre)
 marker = Marker(
   lngLat = c(9.5,51.31667),
   popup = list(text = "This is a marker",options = list(closeButton = F)),
