@@ -14,7 +14,23 @@ Marker <- function(lngLat, popup = NULL, ...) {
     set_maplibre_class("MapLibreMarker")
 }
 
-MarkerOptions <- function(...) {
+#' Title
+#'
+#' @param ...
+#' @param anchor
+#' @param color
+#' @param pitchAlignment
+#' @param rotationAlignment
+#' @param draggable
+#' @param rotation
+#' @param scale
+#'
+#' @return
+#' @export
+#'
+#' @example examples/markers.R
+MarkerOptions <- function(anchor = NULL, color = NULL, pitchAlignment = NULL, rotationAlignment = NULL,
+                          draggable = NULL, rotation = NULL, scale = NULL,...){
   marker_options <- list(...)
   stopifnot(sapply(marker_options[c("anchor", "color", "pitchAlignment", "rotationAlignment")], function(x) {
     is.null(x) | is.character(x)
