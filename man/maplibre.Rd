@@ -2,7 +2,7 @@
 % Please edit documentation in R/maplibre.R
 \name{maplibre}
 \alias{maplibre}
-\title{<Add Title>}
+\title{Create a Map Object for MapLibre GL}
 \usage{
 maplibre(
   map_options = mapOptions(),
@@ -13,7 +13,7 @@ maplibre(
 )
 }
 \description{
-<Add Description>
+Create a Map Object for MapLibre GL
 }
 \examples{
 map_options <- mapOptions(
