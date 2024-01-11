@@ -6,6 +6,8 @@
 #' @param paint
 #' @param layout
 #'
+#' @example examples/layers.R
+#'
 #' @export
 Layer <- function(type, id, source = NULL, paint = NULL, layout = NULL, ...) {
   lay <- list(
@@ -26,7 +28,39 @@ Layer <- function(type, id, source = NULL, paint = NULL, layout = NULL, ...) {
 #' @param .map
 #' @param layer
 #'
+#' @example examples/layers.R
 #' @export
 add_layer <- function(.map, layer) {
   .map |> add_call("addLayer", layer)
+}
+
+
+#' Add popup property to layer
+#'
+#' @param .map
+#' @param layer_id
+#' @param prop
+#'
+#' @return
+#' @export
+#'
+#' @example examples/layers.R
+add_popup <- function(.map, layer_id, prop){
+  .map |> add_call("addPopup", layer_id, prop)
+}
+
+
+#' Title
+#'
+#' @param .map
+#' @param layer_id
+#' @param prop
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' @example examples/layers.R
+add_tooltip <- function(.map, layer_id, prop){
+  .map |> add_call("addTooltip", layer_id, prop)
 }
