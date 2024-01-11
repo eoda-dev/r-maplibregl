@@ -4,7 +4,7 @@
 #' @param popup
 #' @export
 #' @example examples/markers.R
-Marker <- function(lngLat, popup , ...) {
+Marker <- function(lngLat, popup, ...) {
   mark <- list(
     lngLat  = lngLat,
     popup = popup,
@@ -18,12 +18,20 @@ Marker <- function(lngLat, popup , ...) {
 #' Title
 #'
 #' @param ...
+#' @param anchor
+#' @param color
+#' @param pitchAlignment
+#' @param rotationAlignment
+#' @param draggable
+#' @param rotation
+#' @param scale
 #'
 #' @return
 #' @export
 #'
-#' @examples
-MarkerOptions <- function(...){
+#' @example examples/markers.R
+MarkerOptions <- function(anchor = NULL, color = NULL, pitchAlignment = NULL, rotationAlignment = NULL,
+                          draggable = NULL, rotation = NULL, scale = NULL,...){
   marker_options <- list(...)
   stopifnot(sapply(marker_options[c("anchor", "color", "pitchAlignment", "rotationAlignment")], function(x){is.null(x) | is.character(x)}))
   stopifnot(sapply(marker_options["draggable"], function(x) {is.null(x) | is.logical(x)}))
