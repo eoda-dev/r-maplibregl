@@ -4,9 +4,9 @@ set_maplibre_class <- function(.obj, class_name) {
 }
 
 rdantic <- function(.obj, types, test = 1L) {
-  for (i in 1:length(.obj)) {
-    type_check <- types[[i]]
-    value <- .obj[[i]]
+  for (k in names(.obj)) {
+    type_check <- types[[k]]
+    value <- .obj[[k]]
     if (xor(!type_check(value), is.null(value))) {
       stop(value, " is not ", deparse(substitute(type_check)) , call.=FALSE)
     }
