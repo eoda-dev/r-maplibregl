@@ -1,6 +1,6 @@
-#' <Add Title>
+#' Create a Map Object for MapLibre GL
 #'
-#' <Add Description>
+#'
 #'
 #' @import htmlwidgets
 #'
@@ -30,6 +30,15 @@ maplibre <- function(map_options = mapOptions(), width = "100%", height = NULL, 
   )
 }
 
+#' Add Map Options to a Map Object
+#'
+#' @param style
+#' @param ...
+#'
+#' @return
+#' @export
+#'
+#' @examples
 mapOptions <- function(style = basemaps$carto$dark_matter, ...) {
   list(style = style, ...)
 }
