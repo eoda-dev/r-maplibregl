@@ -1,7 +1,7 @@
 test_that("rdantic", {
   # Prepare
-  l <- list(a = 1, b = "test")
-  types <- list(is.numeric, is.character)
+  l <- list(a = 1, b = "test", d = NULL)
+  types <- list(is.numeric, is.character, is.numeric)
 
   # Act
   l <- rdantic(l, types)

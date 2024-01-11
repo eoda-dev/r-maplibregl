@@ -10,7 +10,7 @@ rdantic <- function(.obj, types, test = 1L) {
     type_check <- types[[i]]
     value <- .obj[[i]]
     # stopifnot(type_check(value))
-    if (!type_check(value)) {
+    if (xor(!type_check(value), is.null(value))) {
       stop(value, " is not ", deparse(substitute(type_check)) , call.=FALSE)
     }
   }
