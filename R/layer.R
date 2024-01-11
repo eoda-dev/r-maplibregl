@@ -8,7 +8,7 @@
 #'
 #' @export
 Layer <- function(type, id, source = NULL, paint = NULL, layout = NULL, ...) {
-  lay <- list(
+  .layer <- list(
     type = type,
     id = id,
     source = source,
@@ -16,8 +16,8 @@ Layer <- function(type, id, source = NULL, paint = NULL, layout = NULL, ...) {
     layout = layout
   ) |>
     purrr::compact()
-  class(lay) <- "MapLibreLayer"
-  return(lay)
+    class(.layer) <- c(class(.layer), "MapLibreLayer")
+    return(.layer)
 }
 
 

@@ -8,10 +8,10 @@ test_that("layer spec", {
     id = id,
     type = type
   )
-  print(class(layer))
 
   # Assert
   expect_equal(layer$id, id)
   expect_equal(layer$type, type)
-  expect_s3_class(layer, "MapLibreLayer")
+  expect_s3_class(layer, c("list"))
+  expect_s3_class(layer, c("MapLibreLayer"))
 })
