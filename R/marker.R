@@ -15,6 +15,14 @@ Marker <- function(lngLat, popup , ...) {
   return(mark)
 }
 
+#' Title
+#'
+#' @param ...
+#'
+#' @return
+#' @export
+#'
+#' @examples
 MarkerOptions <- function(...){
   marker_options <- list(...)
   stopifnot(sapply(marker_options[c("anchor", "color", "pitchAlignment", "rotationAlignment")], function(x){is.null(x) | is.character(x)}))

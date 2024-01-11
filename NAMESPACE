@@ -2,10 +2,12 @@
 
 export(Layer)
 export(Marker)
+export(MarkerOptions)
 export(add_call)
 export(add_control)
 export(add_layer)
 export(add_marker)
+export(mapOptions)
 export(maplibre)
 export(maplibreOutput)
 export(renderMaplibre)
