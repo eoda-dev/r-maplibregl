@@ -4,15 +4,14 @@
 #' @param popup
 #' @export
 #' @example examples/markers.R
-Marker <- function(lngLat, popup , ...) {
-  mark <- list(
+Marker <- function(lngLat, popup =NULL, ...) {
+  list(
     lngLat  = lngLat,
     popup = popup,
     options = MarkerOptions(...)
   ) |>
-    purrr::compact()
-  class(mark) <- "MapLibreMarker"
-  return(mark)
+    purrr::compact() |>
+    set_maplibre_class("MapLibreMarker")
 }
 
 MarkerOptions <- function(...){

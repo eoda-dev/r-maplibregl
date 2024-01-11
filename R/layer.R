@@ -8,16 +8,15 @@
 #'
 #' @export
 Layer <- function(type, id, source = NULL, paint = NULL, layout = NULL, ...) {
-  .layer <- list(
+  list(
     type = type,
     id = id,
     source = source,
     paint = paint,
     layout = layout
   ) |>
-    purrr::compact()
-    class(.layer) <- c(class(.layer), "MapLibreLayer")
-    return(.layer)
+    purrr::compact() |>
+    set_maplibre_class("MapLibreLayer")
 }
 
 
