@@ -14,7 +14,7 @@ LazyData: true
 RoxygenNote: 7.2.3
 Depends: 
     R (>= 2.10)
-URL: https://eodagmbh.github.io/r-maplibregl/
+URL: https://eodagmbh.github.io/r-maplibregl, https://github.com/eodaGmbH/r-maplibregl
 Imports: 
     geojsonsf,
     htmlwidgets,

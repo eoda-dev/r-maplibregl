@@ -1,4 +1,9 @@
 url: https://eodagmbh.github.io/r-maplibregl/
 template:
   bootstrap: 5
+navbar:
+  structure:
+    left:  [intro, reference]
+    right: [search, github]
+
 
