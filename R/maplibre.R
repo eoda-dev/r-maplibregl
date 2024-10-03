@@ -33,14 +33,116 @@ maplibre <- function(map_options = mapOptions(), width = "100%", height = NULL, 
 #' Add Map Options to a Map Object
 #'
 #' @param style
+#' @param antialias
+#' @param attribution_control
+#' @param bearing
+#' @param bearing_snap
+#' @param bounds
+#' @param box_zoom
+#' @param center
+#' @param click_tolerance
+#' @param custom_attribution
+#' @param double_click_zoom
+#' @param fade_duration
+#' @param fit_bounds_options
+#' @param hash
+#' @param interactive
+#' @param keyword
+#' @param max_bounds
+#' @param max_pitch
+#' @param max_zoom
+#' @param min_pitch
+#' @param min_zoom
+#' @param pitch
+#' @param scroll_zoom
+#' @param zoom
 #' @param ...
 #'
 #' @return
 #' @export
 #'
 #' @examples
-mapOptions <- function(style = basemaps$carto$dark_matter, ...) {
-  list(style = style, ...)
+mapOptions <- function(style = basemaps$carto$dark_matter,
+                       antialias = NULL,
+                       attribution_control = NULL,
+                       bearing = NULL,
+                       bearing_snap = NULL,
+                       bounds = NULL,
+                       box_zoom = NULL,
+                       center = NULL,
+                       click_tolerance = NULL,
+                       custom_attribution = NULL,
+                       double_click_zoom = NULL,
+                       fade_duration = NULL,
+                       fit_bounds_options = NULL,
+                       hash = NULL,
+                       interactive = NULL,
+                       keyword = NULL,
+                       max_bounds = NULL,
+                       max_pitch = NULL,
+                       max_zoom = NULL,
+                       min_pitch = NULL,
+                       min_zoom = NULL,
+                       pitch = NULL,
+                       scroll_zoom = NULL,
+                       zoom = NULL,
+                       ...) {
+
+  types <- list(
+    style = function(x) {is.list(x) | is.character(x)},
+    antialias = is.logical,
+    attributionControl = is.logical,
+    bearing = function(x) {is.integer(x) | is.numeric(x)},
+    bearingSnap = is.integer,
+    bounds = is.list,
+    boxZoom = is.logical,
+    center = is.list,
+    clickTolerance = function(x) {is.integer(x) | x==round(x,0)},
+    customAttribution = is.logical,
+    doubleClickZoom = is.logical,
+    fadeDuration = function(x) {is.integer(x) | x==round(x,0)},
+    fitBoundsOptions = is.list,
+    hash = is.logical,
+    interactive = is.logical,
+    keyword = is.logical,
+    maxBounds = is.list,
+    maxPitch = function(x) {is.integer(x) | x==round(x,0)},
+    maxZoom = function(x) {is.integer(x) | x==round(x,0)},
+    minPitch = function(x) {is.integer(x) | x==round(x,0)},
+    minZoom = function(x) {is.integer(x) | x==round(x,0)},
+    pitch = function(x) {is.integer(x) | x==round(x,0)},
+    scrollZoom = is.logical,
+    zoom = function(x) {is.integer(x) | is.numeric(x)}
+
+  )
+  purrr::compact(
+    rdantic(
+      list(
+        antialias = antialias,
+        attributionControl = attribution_control,
+        bearing = bearing,
+        bearingSnap = bearing_snap,
+        bounds = bounds,
+        boxZoom = box_zoom,
+        center = center,
+        clickTolerance = click_tolerance,
+        customAttribution = custom_attribution,
+        doubleClickZoom = double_click_zoom,
+        fadeDuration = fade_duration,
+        fitBoundsOptions = fit_bounds_options,
+        hash = hash,
+        interactive = interactive,
+        keyword = keyword,
+        maxBounds = max_bounds,
+        maxPitch = max_pitch,
+        maxZoom = max_zoom,
+        minPitch = min_pitch,
+        minZoom = min_zoom,
+        pitch = pitch,
+        scrollZoom = scroll_zoom,
+        style = style,
+        zoom = zoom), types),
+    ...)
 }
 
 
