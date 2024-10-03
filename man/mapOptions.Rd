@@ -4,7 +4,33 @@
 \alias{mapOptions}
 \title{Add Map Options to a Map Object}
 \usage{
-mapOptions(style = basemaps$carto$dark_matter, ...)
+mapOptions(
+  style = basemaps$carto$dark_matter,
+  antialias = NULL,
+  attribution_control = NULL,
+  bearing = NULL,
+  bearing_snap = NULL,
+  bounds = NULL,
+  box_zoom = NULL,
+  center = NULL,
+  click_tolerance = NULL,
+  custom_attribution = NULL,
+  double_click_zoom = NULL,
+  fade_duration = NULL,
+  fit_bounds_options = NULL,
+  hash = NULL,
+  interactive = NULL,
+  keyword = NULL,
+  max_bounds = NULL,
+  max_pitch = NULL,
+  max_zoom = NULL,
+  min_pitch = NULL,
+  min_zoom = NULL,
+  pitch = NULL,
+  scroll_zoom = NULL,
+  zoom = NULL,
+  ...
+)
 }
 \arguments{
 \item{...}{}

@@ -4,10 +4,19 @@
 \alias{MarkerOptions}
 \title{Title}
 \usage{
-MarkerOptions(...)
+MarkerOptions(
+  anchor = NULL,
+  color = NULL,
+  pitchAlignment = NULL,
+  rotationAlignment = NULL,
+  draggable = NULL,
+  rotation = NULL,
+  scale = NULL,
+  ...
+)
 }
 \arguments{
-\item{...}{}
+\item{scale}{}
 }
 \description{
 Title

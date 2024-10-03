@@ -4,7 +4,7 @@
 \alias{Marker}
 \title{Create a Marker}
 \usage{
-Marker(lngLat, popup, ...)
+Marker(lngLat, popup = NULL, ...)
 }
 \description{
 Create a Marker
