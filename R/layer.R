@@ -1,10 +1,10 @@
 #' Create a layer
 #'
-#' @param type A layer type
-#' @param id
-#' @param source
-#' @param paint
-#' @param layout
+#' @param type The type of the layer.
+#' @param id The unique ID of the layer. Defaults to `as.character(uuid::UUIDgenerate())`
+#' @param source The name (unique ID) of a source or a source object to be used for the layer.
+#' @param paint The paint properties of the layer.
+#' @param layout The layout properties of the layer.
 #'
 #' @example examples/layers.R
 #'
@@ -13,7 +13,8 @@ Layer <- function(type, id, source = NULL, paint = NULL, layout = NULL, ...) {
   if(!is.element(type, LayerType)){
     stop(
       glue::glue("type needs to be one of ",
-                 glue::glue_collapse(unlist(maplibre::LayerType), sep = " ")
+                 glue::glue_collapse(unlist(maplibre::LayerType), sep = " "),
+                 "\nSee ?maplibre::LayerType for more information."
       )
     )
   }
