@@ -1,9 +1,8 @@
-pandoc: 2.19.2
-pkgdown: 2.0.7
+pandoc: 3.1.11
+pkgdown: 2.1.1
 pkgdown_sha: ~
-articles: {}
-last_built: 2024-01-11T09:43Z
-urls:
-  reference: https://eodagmbh.github.io/r-maplibregl/reference
-  article: https://eodagmbh.github.io/r-maplibregl/articles
-
+articles:
+  articles/deck-gl: deck-gl.html
+  maplibre: maplibre.html
+  articles/pmtiles: pmtiles.html
+last_built: 2024-10-04T21:18Z
