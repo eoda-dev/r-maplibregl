@@ -7,10 +7,11 @@ rdantic <- function(.obj, types, test = 1L) {
   for (k in names(.obj)) {
     type_check <- types[[k]]
     value <- .obj[[k]]
-    if (xor(!type_check(value), is.null(value))) {
-      stop(value, " is not ", deparse(substitute(type_check)) , call.=FALSE)
+    if (!is.null(value)) {
+      if (!type_check(value)) {
+        stop("Value of '", k , "' (\"",value, "\") failed test: ", deparse(substitute(type_check)), call. = FALSE)
+      }
     }
   }
-
   return(.obj)
 }

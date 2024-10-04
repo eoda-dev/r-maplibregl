@@ -4,10 +4,19 @@
 \alias{add_popup}
 \title{Add popup property to layer}
 \usage{
-add_popup(.map, layer_id, prop)
+add_popup(.map, layer_id, prop = NULL, template = NULL)
 }
 \arguments{
-\item{prop}{}
+\item{.map}{A \code{\link[=maplibre]{maplibre()}} HTML widget}
+
+\item{layer_id}{The layer to which the popup is added.}
+
+\item{prop}{The property of the source to be displayed. If \code{None}, all properties are displayed.}
+
+\item{template}{A mustache template. If supplied, \code{prop} is ignored.}
+}
+\value{
+The updated \code{\link[=maplibre]{maplibre()}} HTML widget
 }
 \description{
 Add popup property to layer
@@ -27,8 +36,15 @@ earthquakes_layer <- Layer(
   paint = list("circle-color" = "yellow", "circle-radius" = 2)
 )
 
+# Adds a tooltip that appears when hovering over it
+
 maplibre() |>
-  add_layer(earthquakes_layer)
+  add_layer(earthquakes_layer) |>
+  add_tooltip("earthquakes", prop = "mag")
 
+# Adds a popup that appears when clicking on the layer
 
+maplibre() |>
+  add_layer(earthquakes_layer) |>
+  add_popup("earthquakes", prop = "mag")
 }

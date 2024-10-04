@@ -1,0 +1,37 @@
+PMTILES_URL <- "https://pmtiles.io/protomaps(vector)ODbL_firenze.pmtiles"
+
+pmtiles_source <- list(
+  type = "vector",
+  url = glue::glue("pmtiles://{PMTILES_URL}"),
+  attribution = '© <a href="https://openstreetmap.org">OpenStreetMap</a>'
+)
+
+sources <- list(pmtiles = pmtiles_source)
+
+landuse <- Layer(
+  id = "buildings",
+  source = "pmtiles",
+  "source-layer" = "landuse",
+  type = LayerType$FILL,
+  paint = list("fill-color" = "steelblue")
+)
+
+roads <- Layer(
+  id = "roads",
+  source = "pmtiles",
+  "source-layer" = "roads",
+  type = LayerType$LINE,
+  paint = list("line-color" = "black"),
+)
+
+custom_basemap <- construct_basemap_style(
+  sources,
+  layers = list(landuse, roads)
+)
+
+setup <- mapOptions(
+  style = custom_basemap,
+  bounds = list(11.154026, 43.7270125, 11.3289395, 43.8325455)
+)
+
+maplibre(setup)

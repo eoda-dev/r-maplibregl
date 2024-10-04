@@ -4,19 +4,25 @@
 \alias{Marker}
 \title{Create a Marker}
 \usage{
-Marker(lngLat, popup, ...)
+Marker(lng_lat, popup = NULL, ...)
+}
+\arguments{
+\item{lng_lat}{Longitude and latitude coordinates of the marker, measured in degrees based on WGS84 (EPSG:4326) standard.}
+
+\item{popup}{The Popup that is displayed when a user clicks on the marker.}
+
+\item{...}{Additional marker options}
 }
 \description{
 Create a Marker
 }
 \examples{
-library(maplibre)
-marker = Marker(
-  lngLat = c(9.5,51.31667),
-  popup = list(text = "This is a marker",options = list(closeButton = F)),
-  color= "darkred"
+marker <- Marker(
+  lng_lat = c(9.5, 51.31667),
+  popup = list(text = "This is a marker", options = list(closeButton = FALSE)),
+  color = "darkred"
 )
 
-maplibre(mapOptions(center = c(9.5,51.31667)),zoom = 4) |>
+maplibre(mapOptions(center = c(9.5, 51.31667)), zoom = 4) |>
   add_marker(marker)
 }

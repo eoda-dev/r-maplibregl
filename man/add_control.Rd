@@ -2,7 +2,7 @@
 % Please edit documentation in R/add_control.R
 \name{add_control}
 \alias{add_control}
-\title{Title}
+\title{Add a control to a Map widget}
 \usage{
 add_control(
   .map,
@@ -13,8 +13,33 @@ add_control(
 )
 }
 \arguments{
-\item{control_name}{}
+\item{.map}{A \code{\link[=maplibre]{maplibre()}} HTML widget}
+
+\item{control_name}{The name of the control}
+
+\item{control_position}{The position of the control.}
+
+\item{...}{Control options depending on the type of control.}
+}
+\value{
+The updated \code{\link[=maplibre]{maplibre()}} HTML widget
 }
 \description{
-Title
+Add a control to a Map widget
+}
+\examples{
+map_options <- mapOptions(
+  center = c(-123.1256, 49.24658),
+  hash = TRUE,
+  pitch = 0,
+  style = basemaps$carto$dark_matter
+  )
+
+# add control uses add_call to add a control to the map widget
+maplibre(map_options, zoom = 12) |>
+  add_control("NavigationControl", "top-left", showCompass = FALSE)
+
+# this is equal to:
+maplibre(map_options, zoom = 12) |>
+  add_call("addControl", "NavigationControl", list(showCompass = FALSE), "top-left")
 }

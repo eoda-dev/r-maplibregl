@@ -1,13 +1,13 @@
-#' Title
+#' Add a map method to a Map widget.
 #'
-#' @param .map
-#' @param .name
-#' @param ...
+#' @param .map A [maplibre()] HTML widget
+#' @param .name The name of the map method to be executed
+#' @param ... The arguments to be passed to the map method.
 #'
-#' @return
+#' @return The updated [maplibre()] HTML widget
 #' @export
 #'
-#' @examples
+#' @example examples/basemap.R
 add_call <- function(.map, .name, ...) {
   pos <- length(.map$x$calls) + 1
   .map$x$calls[[pos]] <- list(

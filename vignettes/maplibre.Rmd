@@ -1,0 +1,31 @@
+---
+title: "maplibre"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{maplibre}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+maplibre provides R bindings for MapLibre GL JS.
+
+The goal of maplibre is to make it easy to create elegant and interactive maps in RMarkdown documents and Shiny applications.
+
+```{r setup}
+library(maplibre)
+```
+
+## Basic usage
+
+To render a map call `maplibre()`:
+
+```{r}
+maplibre()
+```

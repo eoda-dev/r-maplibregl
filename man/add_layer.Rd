@@ -4,10 +4,19 @@
 \alias{add_layer}
 \title{Add a layer to map}
 \usage{
-add_layer(.map, layer)
+add_layer(.map, layer, before_id = NULL)
 }
 \arguments{
-\item{layer}{}
+\item{.map}{A \code{\link[=maplibre]{maplibre()}} HTML widget}
+
+\item{layer}{A \code{\link[=Layer]{Layer()}} object}
+
+\item{before_id}{The ID of an existing layer to insert the new layer before,
+resulting in the new layer appearing visually beneath the existing layer.
+If \code{None}, the new layer will appear above all other layers.}
+}
+\value{
+The updated \code{\link[=maplibre]{maplibre()}} HTML widget
 }
 \description{
 Add a layer to map
@@ -27,8 +36,15 @@ earthquakes_layer <- Layer(
   paint = list("circle-color" = "yellow", "circle-radius" = 2)
 )
 
+# Adds a tooltip that appears when hovering over it
+
 maplibre() |>
-  add_layer(earthquakes_layer)
+  add_layer(earthquakes_layer) |>
+  add_tooltip("earthquakes", prop = "mag")
 
+# Adds a popup that appears when clicking on the layer
 
+maplibre() |>
+  add_layer(earthquakes_layer) |>
+  add_popup("earthquakes", prop = "mag")
 }

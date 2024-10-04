@@ -6,11 +6,23 @@
 \usage{
 maplibre(
   map_options = mapOptions(),
+  deck = FALSE,
   width = "100\%",
   height = NULL,
-  elementId = NULL,
+  element_id = NULL,
   ...
 )
+}
+\arguments{
+\item{map_options}{\code{\link[=mapOptions]{mapOptions()}}}
+
+\item{deck}{Whether to add \code{deck.gl} HTML dependency.}
+
+\item{width, height}{The width and the height of the widget.}
+
+\item{element_id}{The unique ID of the widgets's HTML element.}
+
+\item{...}{Further map options.}
 }
 \description{
 Create a Map Object for MapLibre GL
@@ -20,10 +32,14 @@ map_options <- mapOptions(
   center = c(-123.1256, 49.24658),
   hash = TRUE,
   pitch = 0,
-  style = basemaps$carto$dark_matter,
-  test = NULL
-)
-maplibre(map_options, zoom = 12) |>
-  add_control("NavigationControl", "top-left", showCompass = F)
+  style = basemaps$carto$dark_matter
+  )
 
+# add control uses add_call to add a control to the map widget
+maplibre(map_options, zoom = 12) |>
+  add_control("NavigationControl", "top-left", showCompass = FALSE)
+
+# this is equal to:
+maplibre(map_options, zoom = 12) |>
+  add_call("addControl", "NavigationControl", list(showCompass = FALSE), "top-left")
 }

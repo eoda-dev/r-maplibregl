@@ -2,13 +2,36 @@
 % Please edit documentation in R/add_call.R
 \name{add_call}
 \alias{add_call}
-\title{Title}
+\title{Add a map method to a Map widget.}
 \usage{
 add_call(.map, .name, ...)
 }
 \arguments{
-\item{...}{}
+\item{.map}{A \code{\link[=maplibre]{maplibre()}} HTML widget}
+
+\item{.name}{The name of the map method to be executed}
+
+\item{...}{The arguments to be passed to the map method.}
+}
+\value{
+The updated \code{\link[=maplibre]{maplibre()}} HTML widget
 }
 \description{
-Title
+Add a map method to a Map widget.
+}
+\examples{
+map_options <- mapOptions(
+  center = c(-123.1256, 49.24658),
+  hash = TRUE,
+  pitch = 0,
+  style = basemaps$carto$dark_matter
+  )
+
+# add control uses add_call to add a control to the map widget
+maplibre(map_options, zoom = 12) |>
+  add_control("NavigationControl", "top-left", showCompass = FALSE)
+
+# this is equal to:
+maplibre(map_options, zoom = 12) |>
+  add_call("addControl", "NavigationControl", list(showCompass = FALSE), "top-left")
 }
