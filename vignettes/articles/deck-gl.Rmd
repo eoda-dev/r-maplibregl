@@ -28,7 +28,7 @@ deck_grid_layer <- list(
 )
 
 setup <- mapOptions(
-  center = list(-122.4, 37.74),
+  center = c(-122.4, 37.74),
   zoom = 12,
   pitch = 40,
   hash = TRUE
