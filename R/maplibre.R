@@ -2,15 +2,18 @@
 #'
 #'
 #' @param map_options [mapOptions()]
+#' @param deck Whether to add `deck.gl` HTML dependency.
 #' @param width,height The width and the height of the widget.
-#' @param elementId The unique ID of the widgets's HTML element.
+#' @param element_id The unique ID of the widgets's HTML element.
 #' @param ... Further map options.
 #' @import htmlwidgets
 #'
 #' @export
 #' @example examples/basemap.R
 #'
-maplibre <- function(map_options = mapOptions(), width = "100%", height = NULL, elementId = NULL, ...) {
+maplibre <- function(map_options = mapOptions(),
+                     deck = FALSE,
+                     width = "100%", height = NULL, element_id = NULL, ...) {
   if (inherits(map_options$bounds, "bbox")) {
     map_options$bounds <- unname(map_options$bounds)
   }
@@ -22,6 +25,12 @@ maplibre <- function(map_options = mapOptions(), width = "100%", height = NULL, 
     calls = list()
   )
 
+  # Dependencies
+  dependencies <- list()
+  if (isTRUE(deck)) {
+    dependencies <- c(dependencies, list(dependency_deck_gl, dependency_deck_gl_json))
+  }
+
   # create widget
   htmlwidgets::createWidget(
     name = "maplibre",
@@ -29,7 +38,8 @@ maplibre <- function(map_options = mapOptions(), width = "100%", height = NULL, 
     width = width,
     height = height,
     package = "maplibre",
-    elementId = elementId
+    dependencies = dependencies,
+    elementId = element_id
   )
 }
 

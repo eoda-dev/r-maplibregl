@@ -6,18 +6,21 @@
 \usage{
 maplibre(
   map_options = mapOptions(),
+  deck = FALSE,
   width = "100\%",
   height = NULL,
-  elementId = NULL,
+  element_id = NULL,
   ...
 )
 }
 \arguments{
 \item{map_options}{\code{\link[=mapOptions]{mapOptions()}}}
 
+\item{deck}{Whether to add \code{deck.gl} HTML dependency.}
+
 \item{width, height}{The width and the height of the widget.}
 
-\item{elementId}{The unique ID of the widgets's HTML element.}
+\item{element_id}{The unique ID of the widgets's HTML element.}
 
 \item{...}{Further map options.}
 }
