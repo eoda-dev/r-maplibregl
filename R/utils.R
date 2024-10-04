@@ -7,9 +7,9 @@ rdantic <- function(.obj, types, test = 1L) {
   for (k in names(.obj)) {
     type_check <- types[[k]]
     value <- .obj[[k]]
-    if(!is.null(value)){
+    if (!is.null(value)) {
       if (!type_check(value)) {
-        stop(value, " is not ", deparse(substitute(type_check)) , call.=FALSE)
+        stop(value, " is not ", deparse(substitute(type_check)), call. = FALSE)
       }
     }
   }
