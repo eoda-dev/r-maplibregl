@@ -27,11 +27,10 @@ TYPES_MAP_OPTIONS <- list(
   bearingSnap = is.integer,
   bounds = is.list,
   boxZoom = is.logical,
-  center = is.list,
+  center = is.numeric,
   clickTolerance = function(x) {
     is.integer(x) | x == round(x, 0)
   },
-  customAttribution = is.logical,
   doubleClickZoom = is.logical,
   fadeDuration = function(x) {
     is.integer(x) | x == round(x, 0)
@@ -39,7 +38,8 @@ TYPES_MAP_OPTIONS <- list(
   fitBoundsOptions = is.list,
   hash = is.logical,
   interactive = is.logical,
-  keyword = is.logical,
+  keyboard = is.logical,
+  maplibreLogo = is.logical,
   maxBounds = is.list,
   maxPitch = function(x) {
     is.integer(x) | x == round(x, 0)
