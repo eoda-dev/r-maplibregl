@@ -1,10 +1,11 @@
 #' Create a layer
 #'
 #' @param type The type of the layer.
-#' @param id The unique ID of the layer. Defaults to `as.character(uuid::UUIDgenerate())`
+#' @param id The unique ID of the layer
 #' @param source The name (unique ID) of a source or a source object to be used for the layer.
 #' @param paint The paint properties of the layer.
 #' @param layout The layout properties of the layer.
+#' @param ... Additional layer options
 #'
 #' @example examples/layers.R
 #'
@@ -65,40 +66,38 @@ LayerType <- list(
 #'
 #' @inherit add_control params return
 #' @param layer A [Layer()] object
+#' @param before_id The ID of an existing layer to insert the new layer before,
+#' resulting in the new layer appearing visually beneath the existing layer.
+#' If `None`, the new layer will appear above all other layers.
 #'
 #' @example examples/layers.R
 #' @export
-add_layer <- function(.map, layer) {
-  .map |> add_call("addLayer", layer)
+add_layer <- function(.map, layer, before_id = NULL) {
+  .map |> add_call("addLayer", layer, before_id)
 }
 
 
 #' Add popup property to layer
-#'
-#' @param .map
-#' @param layer_id
-#' @param prop
-#'
-#' @return
+#' @param .map A [maplibre()] HTML widget
+#' @param layer_id The layer to which the popup is added.
+#' @param prop The property of the source to be displayed. If `None`, all properties are displayed.
+#' @param template A mustache template. If supplied, `prop` is ignored.
+#' @returns The updated [maplibre()] HTML widget
 #' @export
 #'
 #' @example examples/layers.R
-add_popup <- function(.map, layer_id, prop) {
-  .map |> add_call("addPopup", layer_id, prop)
+add_popup <- function(.map, layer_id, prop = NULL, template = NULL) {
+  .map |> add_call("addPopup", layer_id, prop, template)
 }
 
 
-#' Title
+#' Add tooltip property to layer
 #'
-#' @param .map
-#' @param layer_id
-#' @param prop
+#' @inherit add_popup params return
 #'
-#' @return
 #' @export
 #'
-#' @examples
 #' @example examples/layers.R
-add_tooltip <- function(.map, layer_id, prop) {
-  .map |> add_call("addTooltip", layer_id, prop)
+add_tooltip <- function(.map, layer_id, prop = NULL, template = NULL) {
+  .map |> add_call("addTooltip", layer_id, prop, template)
 }

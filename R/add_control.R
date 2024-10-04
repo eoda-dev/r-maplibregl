@@ -1,4 +1,4 @@
-#' Title
+#' Add a control to a Map widget
 #'
 #' @param .map A [maplibre()] HTML widget
 #' @param control_name The name of the control
@@ -7,7 +7,7 @@
 #' @returns The updated [maplibre()] HTML widget
 #' @export
 #'
-#' @examples
+#' @example examples/basemap.R
 add_control <- function(.map, control_name = c(
                           "NavigationControl",
                           "ScaleControl", "FullscreenControl",
