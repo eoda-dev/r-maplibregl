@@ -25,5 +25,4 @@ map_options <- mapOptions(
 )
 maplibre(map_options, zoom = 12) |>
   add_control("NavigationControl", "top-left", showCompass = F)
-
 }

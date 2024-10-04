@@ -20,9 +20,7 @@ earthquakes_source <- list(
   data = "https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson"
 )
 
-
-
-  earthquakes_layer <- Layer(
+earthquakes_layer <- Layer(
   id = "earthquakes",
   type = "circle",
   source = earthquakes_source,
@@ -31,7 +29,7 @@ earthquakes_source <- list(
 
 # Adds a tooltip that appears when hovering over it
 
-maplibre(map_options = mapOptions(minZoom=1, maxZoom = 2)) |>
+maplibre() |>
   add_layer(earthquakes_layer) |>
   add_tooltip("earthquakes", prop = "mag")
 
@@ -40,5 +38,4 @@ maplibre(map_options = mapOptions(minZoom=1, maxZoom = 2)) |>
 maplibre() |>
   add_layer(earthquakes_layer) |>
   add_popup("earthquakes", prop = "mag")
-
 }
