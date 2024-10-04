@@ -7,16 +7,17 @@
 add_marker(.map, marker)
 }
 \arguments{
-\item{marker}{}
+\item{.map}{A \code{\link[=maplibre]{maplibre()}} HTML widget}
+
+\item{marker}{A marker object defined using \code{\link[=Marker]{Marker()}}}
 }
 \description{
 Add a marker to map
 }
 \examples{
-library(maplibre)
 marker <- Marker(
-  lngLat = c(9.5, 51.31667),
-  popup = list(text = "This is a marker", options = list(closeButton = F)),
+  lng_lat = c(9.5, 51.31667),
+  popup = list(text = "This is a marker", options = list(closeButton = FALSE)),
   color = "darkred"
 )
 

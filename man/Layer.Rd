@@ -9,13 +9,15 @@ Layer(type, id, source = NULL, paint = NULL, layout = NULL, ...)
 \arguments{
 \item{type}{The type of the layer.}
 
-\item{id}{The unique ID of the layer. Defaults to \code{as.character(uuid::UUIDgenerate())}}
+\item{id}{The unique ID of the layer}
 
 \item{source}{The name (unique ID) of a source or a source object to be used for the layer.}
 
 \item{paint}{The paint properties of the layer.}
 
 \item{layout}{The layout properties of the layer.}
+
+\item{...}{Additional layer options}
 }
 \description{
 Create a layer

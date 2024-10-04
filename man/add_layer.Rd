@@ -4,12 +4,16 @@
 \alias{add_layer}
 \title{Add a layer to map}
 \usage{
-add_layer(.map, layer)
+add_layer(.map, layer, before_id = NULL)
 }
 \arguments{
 \item{.map}{A \code{\link[=maplibre]{maplibre()}} HTML widget}
 
 \item{layer}{A \code{\link[=Layer]{Layer()}} object}
+
+\item{before_id}{The ID of an existing layer to insert the new layer before,
+resulting in the new layer appearing visually beneath the existing layer.
+If \code{None}, the new layer will appear above all other layers.}
 }
 \value{
 The updated \code{\link[=maplibre]{maplibre()}} HTML widget

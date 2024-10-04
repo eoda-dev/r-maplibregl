@@ -5,7 +5,7 @@
 \title{Add Map Options to a Map Object}
 \usage{
 mapOptions(
-  style = basemaps$carto$dark_matter,
+  style = maplibre::basemaps$carto$dark_matter,
   antialias = NULL,
   attribution_control = NULL,
   bearing = NULL,
@@ -14,13 +14,13 @@ mapOptions(
   box_zoom = NULL,
   center = NULL,
   click_tolerance = NULL,
-  custom_attribution = NULL,
   double_click_zoom = NULL,
   fade_duration = NULL,
   fit_bounds_options = NULL,
   hash = NULL,
   interactive = NULL,
-  keyword = NULL,
+  keyboard = NULL,
+  maplibre_logo = NULL,
   max_bounds = NULL,
   max_pitch = NULL,
   max_zoom = NULL,
@@ -33,8 +33,78 @@ mapOptions(
 )
 }
 \arguments{
-\item{...}{}
+\item{style}{The map's MapLibre style. This must be a JSON object conforming to the schema described in the \href{https://maplibre.org/maplibre-style-spec/}{MapLibre Style Specification}, or a URL to such JSON.}
+
+\item{antialias}{If TRUE, the gl context will be created with MSAA antialiasing, which can be useful for antialiasing custom layers. Disabled by default as a performance optimization.}
+
+\item{attribution_control}{If set, an AttributionControl will be added to the map with the provided options. To disable the attribution control, pass false. Note: showing the logo of MapLibre is not required for using MapLibre.}
+
+\item{bearing}{The initial bearing (rotation) of the map, measured in degrees counter-clockwise from north. If bearing is not specified in the constructor options, MapLibre GL JS will look for it in the map's style object. If it is not specified in the style, either, it will default to 0.}
+
+\item{bearing_snap}{The threshold, measured in degrees, that determines when the map's bearing will snap to north. For example, with a bearingSnap of 7, if the user rotates the map within 7 degrees of north, the map will automatically snap to exact north.}
+
+\item{bounds}{The initial bounds of the map. If bounds is specified, it overrides center and zoom constructor options.}
+
+\item{box_zoom}{If TRUE, the "box zoom" interaction is enabled}
+
+\item{center}{The initial geographical centerpoint of the map. If center is not specified in the constructor options, MapLibre GL JS will look for it in the map's style object. If it is not specified in the style, either, it will default to (0, 0) Note: MapLibre GL JS uses longitude, latitude coordinate order (as opposed to latitude, longitude) to match GeoJSON.}
+
+\item{click_tolerance}{The max number of pixels a user can shift the mouse pointer during a click for it to be considered a valid click (as opposed to a mouse drag).}
+
+\item{double_click_zoom}{If TRUE, the "double click to zoom" interaction is enabled}
+
+\item{fade_duration}{Controls the duration of the fade-in/fade-out animation for label collisions after initial map load, in milliseconds. This setting affects all symbol layers. This setting does not affect the duration of runtime styling transitions or raster tile cross-fading.}
+
+\item{fit_bounds_options}{A \href{https://maplibre.org/maplibre-gl-js/docs/API/type-aliases/FitBoundsOptions/}{FitBoundsOptions} options object to use only when fitting the initial bounds provided above.}
+
+\item{hash}{If TRUE, the map's position (zoom, center latitude, center longitude, bearing, and pitch) will be synced with the hash fragment of the page's URL. For example, http://path/to/my/page.html#2.59/39.26/53.07/-24.1/60. An additional string may optionally be provided to indicate a parameter-styled hash, e.g. http://path/to/my/page.html#map=2.59/39.26/53.07/-24.1/60&foo=bar, where foo is a custom parameter and bar is an arbitrary hash distinct from the map hash.}
+
+\item{interactive}{If FALSE, no mouse, touch, or keyboard listeners will be attached to the map, so it will not respond to interaction.}
+
+\item{keyboard}{If TRUE, keyboard shortcuts are enabled}
+
+\item{maplibre_logo}{If TRUE, the MapLibre logo will be shown.}
+
+\item{max_bounds}{If set, the map will be constrained to the given bounds.}
+
+\item{max_pitch}{The maximum pitch of the map (0-85). Values greater than 60 degrees are experimental and may result in rendering issues.}
+
+\item{max_zoom}{The maximum zoom level of the map (0-24).}
+
+\item{min_pitch}{The minimum pitch of the map (0-85). Values greater than 60 degrees are experimental and may result in rendering issues.}
+
+\item{min_zoom}{The minimum zoom level of the map (0-24).}
+
+\item{pitch}{The initial pitch (tilt) of the map, measured in degrees away from the plane of the screen (0-85). If pitch is not specified in the constructor options, MapLibre GL JS will look for it in the map's style object. If it is not specified in the style, either, it will default to 0. Values greater than 60 degrees are experimental and may result in rendering issues.}
+
+\item{scroll_zoom}{If TRUE, the "scroll to zoom" interaction is enabled.}
+
+\item{zoom}{The initial zoom level of the map. If zoom is not specified in the constructor options, MapLibre GL JS will look for it in the map's style object. If it is not specified in the style, either, it will default to 0.}
+
+\item{...}{Additional parameters}
+}
+\value{
+A list of map options.
 }
 \description{
 Add Map Options to a Map Object
+}
+\examples{
+map_options <- mapOptions(
+  center = c(-123.1256, 49.24658),
+  hash = TRUE,
+  pitch = 0,
+  style = basemaps$carto$dark_matter
+  )
+
+# add control uses add_call to add a control to the map widget
+maplibre(map_options, zoom = 12) |>
+  add_control("NavigationControl", "top-left", showCompass = FALSE)
+
+# this is equal to:
+maplibre(map_options, zoom = 12) |>
+  add_call("addControl", "NavigationControl", list(showCompass = FALSE), "top-left")
+}
+\references{
+Parameter descriptions are adapted from the Maplibre GL JS Project, please visit the official documentation at \url{https://maplibre.org/maplibre-gl-js/docs/API/type-aliases/MapOptions/}
 }
