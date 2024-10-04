@@ -7,7 +7,12 @@
 add_layer(.map, layer)
 }
 \arguments{
-\item{layer}{}
+\item{.map}{A \code{\link[=maplibre]{maplibre()}} HTML widget}
+
+\item{layer}{A \code{\link[=Layer]{Layer()}} object}
+}
+\value{
+The updated \code{\link[=maplibre]{maplibre()}} HTML widget
 }
 \description{
 Add a layer to map

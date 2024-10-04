@@ -9,7 +9,7 @@ Layer(type, id, source = NULL, paint = NULL, layout = NULL, ...)
 \arguments{
 \item{type}{The type of the layer.}
 
-\item{id}{The unique ID of the layer. Defaults to `as.character(uuid::UUIDgenerate())`}
+\item{id}{The unique ID of the layer. Defaults to \code{as.character(uuid::UUIDgenerate())}}
 
 \item{source}{The name (unique ID) of a source or a source object to be used for the layer.}
 

@@ -16,15 +16,15 @@ Rendering types of layers
 \details{
 Rendering types of layers
 \itemize{
-  \item \strong{CIRCLE}: A filled circle.
-  \item \strong{FILL}: A filled polygon with an optional stroked border.
-  \item \strong{FILL_EXTRUSION}: An extruded polygon.
-  \item \strong{LINE}: A stroked line.
-  \item \strong{SYMBOL}: An icon or a text label.
-  \item \strong{RASTER}: Raster map textures such as satellite imagery.
-  \item \strong{HEATMAP}: A heatmap.
-  \item \strong{HILLSHADE}: A Client-side hillshading visualization based on DEM data.
-  \item \strong{BACKGROUND}: A background color or pattern.
+\item \strong{CIRCLE}: A filled circle.
+\item \strong{FILL}: A filled polygon with an optional stroked border.
+\item \strong{FILL_EXTRUSION}: An extruded polygon.
+\item \strong{LINE}: A stroked line.
+\item \strong{SYMBOL}: An icon or a text label.
+\item \strong{RASTER}: Raster map textures such as satellite imagery.
+\item \strong{HEATMAP}: A heatmap.
+\item \strong{HILLSHADE}: A Client-side hillshading visualization based on DEM data.
+\item \strong{BACKGROUND}: A background color or pattern.
 }
 }
 \keyword{datasets}

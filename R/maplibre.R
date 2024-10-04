@@ -1,7 +1,10 @@
 #' Create a Map Object for MapLibre GL
 #'
 #'
-#'
+#' @param map_options [mapOptions()]
+#' @param width,height The width and the height of the widget.
+#' @param elementId The unique ID of the widgets's HTML element.
+#' @param ... Further map options.
 #' @import htmlwidgets
 #'
 #' @export

@@ -12,6 +12,15 @@ maplibre(
   ...
 )
 }
+\arguments{
+\item{map_options}{\code{\link[=mapOptions]{mapOptions()}}}
+
+\item{width, height}{The width and the height of the widget.}
+
+\item{elementId}{The unique ID of the widgets's HTML element.}
+
+\item{...}{Further map options.}
+}
 \description{
 Create a Map Object for MapLibre GL
 }

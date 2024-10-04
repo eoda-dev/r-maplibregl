@@ -10,16 +10,16 @@
 #'
 #' @export
 Layer <- function(type, id, source = NULL, paint = NULL, layout = NULL, ...) {
-  if(!is.element(type, LayerType)){
+  if (!is.element(type, LayerType)) {
     stop(
-      glue::glue("type needs to be one of ",
-                 glue::glue_collapse(unlist(maplibre::LayerType), sep = " "),
-                 "\nSee ?maplibre::LayerType for more information."
+      glue::glue(
+        "type needs to be one of ",
+        glue::glue_collapse(unlist(maplibre::LayerType), sep = " "),
+        "\nSee ?maplibre::LayerType for more information."
       )
     )
   }
-  types <- list(type = is.character, id = is.character,
-                source = function(x) {is.list(x) | is.character(x)}, paint = is.list, layout = is.list)
+
   c(rdantic(
     list(
       type = type,
@@ -27,7 +27,7 @@ Layer <- function(type, id, source = NULL, paint = NULL, layout = NULL, ...) {
       source = source,
       paint = paint,
       layout = layout
-    ), types
+    ), TYPES_LAYER
   ), ...) |>
     purrr::compact() |>
     set_maplibre_class("MapLibreLayer")
@@ -63,8 +63,8 @@ LayerType <- list(
 )
 #' Add a layer to map
 #'
-#' @param .map
-#' @param layer
+#' @inherit add_control params return
+#' @param layer A [Layer()] object
 #'
 #' @example examples/layers.R
 #' @export

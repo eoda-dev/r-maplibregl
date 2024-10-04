@@ -13,7 +13,16 @@ add_control(
 )
 }
 \arguments{
-\item{control_name}{}
+\item{.map}{A \code{\link[=maplibre]{maplibre()}} HTML widget}
+
+\item{control_name}{The name of the control}
+
+\item{control_position}{The position of the control.}
+
+\item{...}{Control options depending on the type of control.}
+}
+\value{
+The updated \code{\link[=maplibre]{maplibre()}} HTML widget
 }
 \description{
 Title
