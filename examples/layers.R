@@ -23,4 +23,3 @@ maplibre() |>
 maplibre() |>
   add_layer(earthquakes_layer) |>
   add_popup("earthquakes", prop = "mag")
-

@@ -5,7 +5,7 @@
 [![R-CMD-check](https://github.com/eodaGmbH/r-maplibregl/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/eodaGmbH/r-maplibregl/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-The goal of maplibre is to ...
+The goal of maplibre is to make it easy to create elegant and interactive maps in RMarkdown documents and Shiny applications.
 
 ## Installation
 
