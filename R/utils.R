@@ -9,7 +9,7 @@ rdantic <- function(.obj, types, test = 1L) {
     value <- .obj[[k]]
     if (!is.null(value)) {
       if (!type_check(value)) {
-        stop(value, " is not ", deparse(substitute(type_check)), call. = FALSE)
+        stop("Value of '", k , "' (\"",value, "\") failed test: ", deparse(substitute(type_check)), call. = FALSE)
       }
     }
   }
