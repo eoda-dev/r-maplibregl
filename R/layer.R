@@ -18,7 +18,8 @@ Layer <- function(type, id, source = NULL, paint = NULL, layout = NULL, ...) {
       )
     )
   }
-  types <- list(type = is.character, id = is.character, source = is.list, paint = is.list, layout = is.list)
+  types <- list(type = is.character, id = is.character,
+                source = function(x) {is.list(x) | is.character(x)}, paint = is.list, layout = is.list)
   c(rdantic(
     list(
       type = type,

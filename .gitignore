@@ -5,3 +5,5 @@
 .Rprofile
 renv
 archive
+docs/
+inst/doc
