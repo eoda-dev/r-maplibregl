@@ -21,8 +21,10 @@ Imports:
     htmlwidgets,
     purrr
 Suggests: 
+    geojsonsf,
     knitr,
     rmarkdown,
+    sf,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 VignetteBuilder: knitr

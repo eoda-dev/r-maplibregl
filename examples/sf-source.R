@@ -1,0 +1,16 @@
+nc <- sf::st_read(system.file("shape/nc.shp", package="sf"))
+
+# Wrong CRS
+bounds <- sf::st_bbox(nc) |>
+  unname() |>
+  as.list()
+
+
+nc_layer <- Layer(
+  type = "line",
+  id = "nc",
+  source = nc
+)
+
+maplibre(mapOptions(style = basemaps$carto$voyager, bounds = bounds)) |>
+  add_layer(nc_layer)

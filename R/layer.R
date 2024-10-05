@@ -21,6 +21,8 @@ Layer <- function(type, id, source = NULL, paint = NULL, layout = NULL, ...) {
     )
   }
 
+  if (is.sf(source)) source <- sf_as_geojson_source(source)
+
   c(rdantic(
     list(
       type = type,

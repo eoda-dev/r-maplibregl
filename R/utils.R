@@ -15,3 +15,7 @@ rdantic <- function(.obj, types, test = 1L) {
   }
   return(.obj)
 }
+
+is.sf <- function(x) {
+  inherits(x, "sf")
+}

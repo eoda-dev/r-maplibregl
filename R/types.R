@@ -9,7 +9,7 @@ TYPES_LAYER <- list(
   type = is.character,
   id = is.character,
   source = function(x) {
-    is.list(x) | is.character(x)
+    is.list(x) | is.character(x) | is.sf(x)
   },
   paint = is.list,
   layout = is.list
