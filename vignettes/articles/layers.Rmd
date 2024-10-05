@@ -1,0 +1,57 @@
+---
+title: "layers"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(maplibre)
+```
+
+```{r}
+nc <- sf::st_read(system.file("shape/nc.shp", package="sf")) |>
+  sf::st_transform("EPSG:4236")
+
+# sf::st_crs(nc)
+
+bounds <- sf::st_bbox(nc) |>
+  unname() |>
+  as.list()
+
+nc_source <- list(
+  type = "geojson",
+  data = geojsonsf::sf_geojson(nc)
+)
+```
+
+## Line
+
+```{r}
+nc_layer <- Layer(
+  type = "line",
+  id = "nc",
+  source = nc_source
+)
+
+maplibre(mapOptions(style = basemaps$carto$voyager, bounds = bounds)) |>
+  add_layer(nc_layer)
+```
+
+## Fill
+
+```{r}
+nc_layer <- Layer(
+  type = "fill",
+  id = "nc",
+  source = nc_source,
+  paint = list("fill-color" = "steelblue", "fill-outline-color" = "darkred" )
+)
+
+maplibre(mapOptions(style = basemaps$carto$voyager, bounds = bounds)) |>
+  add_layer(nc_layer)
+```
