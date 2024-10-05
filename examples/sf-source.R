@@ -9,8 +9,9 @@ bounds <- sf::st_bbox(nc) |>
 nc_layer <- Layer(
   type = "line",
   id = "nc",
-  source = nc
+  source = "nc-polygons"
 )
 
 maplibre(mapOptions(style = basemaps$carto$voyager, bounds = bounds)) |>
+  add_source("nc-polygons", nc) |>
   add_layer(nc_layer)
