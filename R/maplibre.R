@@ -11,9 +11,13 @@
 #' @export
 #' @example examples/basemap.R
 #'
-maplibre <- function(map_options = map_options(),
+maplibre <- function(map_options = NULL,
                      deck = FALSE,
                      width = "100%", height = NULL, element_id = NULL, ...) {
+  if (is.null(map_options)){
+    map_options <- map_options()
+    warning("map_options is NULL. Using map_options() with dark-matterhl-style as style.")
+  }
   if (inherits(map_options$bounds, "bbox")) {
     map_options$bounds <- unname(map_options$bounds)
   }
@@ -21,7 +25,7 @@ maplibre <- function(map_options = map_options(),
   map_options <- map_options[!sapply(map_options, is.null)]
 
   x <- list(
-    map_options = map_options,
+    mapOptions = map_options,
     calls = list()
   )
 
