@@ -5,7 +5,7 @@
 \title{Create a Map Object for MapLibre GL}
 \usage{
 maplibre(
-  map_options = map_options(),
+  map_options = NULL,
   deck = FALSE,
   width = "100\%",
   height = NULL,
