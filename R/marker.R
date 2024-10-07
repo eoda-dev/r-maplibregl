@@ -9,7 +9,7 @@ Marker <- function(lng_lat, popup = NULL, ...) {
   list(
     lngLat = lng_lat,
     popup = popup,
-    options = MarkerOptions(...)
+    options = marker_options(...)
   ) |>
     purrr::compact() |>
     set_maplibre_class("MapLibreMarker")
@@ -32,7 +32,7 @@ Marker <- function(lng_lat, popup = NULL, ...) {
 #' @export
 #'
 #' @example examples/markers.R
-MarkerOptions <- function(anchor = NULL, color = NULL, pitchAlignment = NULL, rotationAlignment = NULL,
+marker_options <- function(anchor = NULL, color = NULL, pitchAlignment = NULL, rotationAlignment = NULL,
                           draggable = NULL, rotation = NULL, scale = NULL, ...) {
   marker_options <- list(...)
   stopifnot(sapply(marker_options[c("anchor", "color", "pitchAlignment", "rotationAlignment")], function(x) {
@@ -46,7 +46,7 @@ MarkerOptions <- function(anchor = NULL, color = NULL, pitchAlignment = NULL, ro
   }))
   marker_options <- marker_options |>
     purrr::compact()
-  class(marker_options) <- "MarkerOptions"
+  class(marker_options) <- "marker_options"
   return(marker_options)
 }
 
