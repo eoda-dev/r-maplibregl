@@ -10,7 +10,7 @@
 #' @example examples/layers.R
 #'
 #' @export
-Layer <- function(type, id, source = NULL, paint = NULL, layout = NULL, ...) {
+layer <- function(type, id, source = NULL, paint = NULL, layout = NULL, ...) {
   if (!is.element(type, LayerType)) {
     stop(
       glue::glue(
@@ -67,7 +67,7 @@ LayerType <- list(
 #' Add a layer to map
 #'
 #' @inherit add_control params return
-#' @param layer A [Layer()] object
+#' @param layer A [layer()] object
 #' @param before_id The ID of an existing layer to insert the new layer before,
 #' resulting in the new layer appearing visually beneath the existing layer.
 #' If `None`, the new layer will appear above all other layers.

@@ -5,7 +5,7 @@
 \title{Create a Map Object for MapLibre GL}
 \usage{
 maplibre(
-  map_options = mapOptions(),
+  map_options = map_options(),
   deck = FALSE,
   width = "100\%",
   height = NULL,
@@ -14,7 +14,7 @@ maplibre(
 )
 }
 \arguments{
-\item{map_options}{\code{\link[=mapOptions]{mapOptions()}}}
+\item{map_options}{\code{\link[=map_options]{map_options()}}}
 
 \item{deck}{Whether to add \code{deck.gl} HTML dependency.}
 
@@ -28,7 +28,7 @@ maplibre(
 Create a Map Object for MapLibre GL
 }
 \examples{
-map_options <- mapOptions(
+map_options <- map_options(
   center = c(-123.1256, 49.24658),
   hash = TRUE,
   pitch = 0,

@@ -12,11 +12,11 @@ nc_source <- list(
   data = geojsonsf::sf_geojson(nc)
 )
 
-nc_layer <- Layer(
+nc_layer <- layer(
   type = "line",
   id = "nc",
   source = nc_source
 )
 
-maplibre(mapOptions(style = basemaps$carto$voyager, bounds = bounds)) |>
+maplibre(map_options(style = basemaps$carto$voyager, bounds = bounds)) |>
   add_layer(nc_layer)

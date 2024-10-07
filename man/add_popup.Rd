@@ -29,7 +29,7 @@ earthquakes_source <- list(
   data = "https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson"
 )
 
-earthquakes_layer <- Layer(
+earthquakes_layer <- layer(
   id = "earthquakes",
   type = "circle",
   source = earthquakes_source,

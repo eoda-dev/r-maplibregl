@@ -27,7 +27,7 @@ deck_grid_layer <- list(
   pickable = TRUE
 )
 
-setup <- mapOptions(
+setup <- map_options(
   center = c(-122.4, 37.74),
   zoom = 12,
   pitch = 40,
