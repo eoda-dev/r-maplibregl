@@ -18,5 +18,5 @@ nc_layer <- layer(
   source = nc_source
 )
 
-maplibre(mapOptions(style = basemaps$carto$voyager, bounds = bounds)) |>
+maplibre(map_options(style = basemaps$carto$voyager, bounds = bounds)) |>
   add_layer(nc_layer)

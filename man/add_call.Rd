@@ -20,7 +20,7 @@ The updated \code{\link[=maplibre]{maplibre()}} HTML widget
 Add a map method to a Map widget.
 }
 \examples{
-map_options <- mapOptions(
+map_options <- map_options(
   center = c(-123.1256, 49.24658),
   hash = TRUE,
   pitch = 0,

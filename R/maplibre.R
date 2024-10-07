@@ -1,7 +1,7 @@
 #' Create a Map Object for MapLibre GL
 #'
 #'
-#' @param map_options [mapOptions()]
+#' @param map_options [map_options()]
 #' @param deck Whether to add `deck.gl` HTML dependency.
 #' @param width,height The width and the height of the widget.
 #' @param element_id The unique ID of the widgets's HTML element.
@@ -11,7 +11,7 @@
 #' @export
 #' @example examples/basemap.R
 #'
-maplibre <- function(map_options = mapOptions(),
+maplibre <- function(map_options = map_options(),
                      deck = FALSE,
                      width = "100%", height = NULL, element_id = NULL, ...) {
   if (inherits(map_options$bounds, "bbox")) {
@@ -21,7 +21,7 @@ maplibre <- function(map_options = mapOptions(),
   map_options <- map_options[!sapply(map_options, is.null)]
 
   x <- list(
-    mapOptions = map_options,
+    map_options = map_options,
     calls = list()
   )
 
@@ -76,7 +76,7 @@ maplibre <- function(map_options = mapOptions(),
 #' @references
 #' Parameter descriptions are adapted from the Maplibre GL JS Project, please visit the official documentation at \url{https://maplibre.org/maplibre-gl-js/docs/API/type-aliases/MapOptions/}
 #' @example examples/basemap.R
-mapOptions <- function(style = maplibre::basemaps$carto$dark_matter,
+map_options <- function(style = maplibre::basemaps$carto$dark_matter,
                        antialias = NULL,
                        attribution_control = NULL,
                        bearing = NULL,

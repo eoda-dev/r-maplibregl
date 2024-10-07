@@ -21,6 +21,6 @@ marker <- Marker(
   color = "darkred"
 )
 
-maplibre(mapOptions(center = c(9.5, 51.31667)), zoom = 4) |>
+maplibre(map_options(center = c(9.5, 51.31667)), zoom = 4) |>
   add_marker(marker)
 }

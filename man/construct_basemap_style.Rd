@@ -51,7 +51,7 @@ custom_basemap <- construct_basemap_style(
   layers = list(landuse, roads)
 )
 
-setup <- mapOptions(
+setup <- map_options(
   style = custom_basemap,
   bounds = list(11.154026, 43.7270125, 11.3289395, 43.8325455)
 )
