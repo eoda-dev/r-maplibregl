@@ -23,8 +23,6 @@ layer(type, id, source = NULL, paint = NULL, layout = NULL, ...)
 Create a layer
 }
 \examples{
-library(maplibre)
-
 earthquakes_source <- list(
   type = "geojson",
   data = "https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson"

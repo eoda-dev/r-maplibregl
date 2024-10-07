@@ -25,7 +25,7 @@ map_options <- map_options(
   hash = TRUE,
   pitch = 0,
   style = basemaps$carto$dark_matter
-  )
+)
 
 # add control uses add_call to add a control to the map widget
 maplibre(map_options, zoom = 12) |>
