@@ -1,4 +1,4 @@
-test_that("multiplication works", {
+test_that("navigation control", {
   # prepare
 
   # act
@@ -69,4 +69,56 @@ test_that("multiplication works", {
   expect_s3_class(m0, c("maplibre", "htmlwidget"))
   expect_s3_class(m1, c("maplibre", "htmlwidget"))
   expect_s3_class(m2, c("maplibre", "htmlwidget"))
+})
+
+
+test_that("scale control", {
+  m0 <- maplibre(map_options()) |>
+    scale_control(
+      position = "top-left",
+      max_width = 200,
+      unit = "metric"
+    )
+  m1 <- maplibre(map_options()) |>
+    scale_control(
+      position = "bottom-right",
+      max_width = 100,
+      unit = "imperial"
+    )
+
+  expect_equal(
+    m0$x$calls,
+    list(
+      list(
+        "addControl",
+        list(
+          "ScaleControl",
+          list(
+            maxWidth = 200,
+            unit = "metric"
+          ),
+          "top-left"
+        )
+      )
+    )
+  )
+
+  expect_equal(
+    m1$x$calls,
+    list(
+      list(
+        "addControl",
+        list(
+          "ScaleControl",
+          list(
+            maxWidth = 100,
+            unit = "imperial"
+          ),
+          "bottom-right"
+        )
+      )
+    )
+  )
+  expect_s3_class(m0, c("maplibre", "htmlwidget"))
+  expect_s3_class(m1, c("maplibre", "htmlwidget"))
 })

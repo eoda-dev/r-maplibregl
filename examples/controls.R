@@ -7,3 +7,13 @@ maplibre(map_options()) |>
     show_compass = TRUE,
     show_zoom = TRUE
   )
+
+
+# Add Scale control
+
+maplibre(map_options()) |>
+  scale_control(
+    position = "top-left",
+    max_width = 200,
+    unit = "metric"
+  )

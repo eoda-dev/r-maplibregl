@@ -75,3 +75,11 @@ TYPES_NAVIGATION_CONTROL_OPTIONS <- list(
   showZoom = is.logical,
   visualizePitch = is.logical
 )
+
+## Scale control ####
+TYPES_SCALE_CONTROL_OPTIONS <- list(
+  maxWidth = function(x) {
+    is.integer(x) | is.numeric(x)
+  },
+  unit = is.character
+)

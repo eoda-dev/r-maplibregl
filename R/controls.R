@@ -23,6 +23,7 @@ add_control <- function(.map, control_name = c(
 
 
 #' Add navigation control to map
+#' A NavigationControl control contains zoom buttons and a compass.
 #' @inherit add_control params return
 #' @param position The position of the control.
 #' @param show_compass If TRUE the compass button is included.
@@ -50,6 +51,40 @@ navigation_control <- function(.map,
   options <- purrr::compact(
     c(
       control_name = "NavigationControl", control_position = control_position,
+      control_options
+    )
+  )
+
+  do.call(add_control, args = list(.map = .map) |> append(options))
+}
+
+
+#' A ScaleControl control displays the ratio of a distance on the map to the corresponding distance on the ground.
+#'
+#' @inherit add_control params return
+#' @inherit navigation_control params
+#' @param max_width The maximum length of the scale control in pixels.
+#' @param unit Unit of the distance ('imperial', 'metric' or 'nautical').
+#'
+#' @export
+#'
+#' @example examples/controls.R
+scale_control <- function(.map,
+                          position = c("top-left", "top-right", "bottom-left", "bottom-right"),
+                          max_width = 100,
+                          unit = c("imperial", "metric", "nautical")) {
+  control_options <- rdantic(
+    list(
+      maxWidth = max_width,
+      unit = match.arg(unit)
+    ),
+    TYPES_SCALE_CONTROL_OPTIONS
+  )
+
+  control_position <- match.arg(position)
+  options <- purrr::compact(
+    c(
+      control_name = "ScaleControl", control_position = control_position,
       control_options
     )
   )
