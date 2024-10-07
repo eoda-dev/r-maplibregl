@@ -14,7 +14,7 @@
 maplibre <- function(map_options = NULL,
                      deck = FALSE,
                      width = "100%", height = NULL, element_id = NULL, ...) {
-  if (is.null(map_options)){
+  if (is.null(map_options)) {
     map_options <- map_options()
     warning("map_options is NULL. Using map_options() with dark-matterhl-style as style.")
   }
@@ -81,30 +81,30 @@ maplibre <- function(map_options = NULL,
 #' Parameter descriptions are adapted from the Maplibre GL JS Project, please visit the official documentation at \url{https://maplibre.org/maplibre-gl-js/docs/API/type-aliases/MapOptions/}
 #' @example examples/basemap.R
 map_options <- function(style = maplibre::basemaps$carto$dark_matter,
-                       antialias = NULL,
-                       attribution_control = NULL,
-                       bearing = NULL,
-                       bearing_snap = NULL,
-                       bounds = NULL,
-                       box_zoom = NULL,
-                       center = NULL,
-                       click_tolerance = NULL,
-                       double_click_zoom = NULL,
-                       fade_duration = NULL,
-                       fit_bounds_options = NULL,
-                       hash = NULL,
-                       interactive = NULL,
-                       keyboard = NULL,
-                       maplibre_logo = NULL,
-                       max_bounds = NULL,
-                       max_pitch = NULL,
-                       max_zoom = NULL,
-                       min_pitch = NULL,
-                       min_zoom = NULL,
-                       pitch = NULL,
-                       scroll_zoom = NULL,
-                       zoom = NULL,
-                       ...) {
+                        antialias = NULL,
+                        attribution_control = NULL,
+                        bearing = NULL,
+                        bearing_snap = NULL,
+                        bounds = NULL,
+                        box_zoom = NULL,
+                        center = NULL,
+                        click_tolerance = NULL,
+                        double_click_zoom = NULL,
+                        fade_duration = NULL,
+                        fit_bounds_options = NULL,
+                        hash = NULL,
+                        interactive = NULL,
+                        keyboard = NULL,
+                        maplibre_logo = NULL,
+                        max_bounds = NULL,
+                        max_pitch = NULL,
+                        max_zoom = NULL,
+                        min_pitch = NULL,
+                        min_zoom = NULL,
+                        pitch = NULL,
+                        scroll_zoom = NULL,
+                        zoom = NULL,
+                        ...) {
   # BODY
   options <- rdantic(
     list(
@@ -136,8 +136,7 @@ map_options <- function(style = maplibre::basemaps$carto$dark_matter,
   )
   purrr::compact(
     c(
-      options
-      ,
+      options,
       list(...)
     )
   )

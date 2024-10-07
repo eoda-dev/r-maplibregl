@@ -1,4 +1,4 @@
-nc <- sf::st_read(system.file("shape/nc.shp", package="sf")) |>
+nc <- sf::st_read(system.file("shape/nc.shp", package = "sf")) |>
   sf::st_transform("EPSG:4236")
 
 # sf::st_crs(nc)

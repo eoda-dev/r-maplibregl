@@ -5,7 +5,7 @@
 \title{Create a Map Object for MapLibre GL}
 \usage{
 maplibre(
-  map_options = map_options(),
+  map_options = NULL,
   deck = FALSE,
   width = "100\%",
   height = NULL,
@@ -33,7 +33,7 @@ map_options <- map_options(
   hash = TRUE,
   pitch = 0,
   style = basemaps$carto$dark_matter
-  )
+)
 
 # add control uses add_call to add a control to the map widget
 maplibre(map_options, zoom = 12) |>

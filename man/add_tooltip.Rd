@@ -22,8 +22,6 @@ The updated \code{\link[=maplibre]{maplibre()}} HTML widget
 Add tooltip property to layer
 }
 \examples{
-library(maplibre)
-
 earthquakes_source <- list(
   type = "geojson",
   data = "https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson"
