@@ -4,7 +4,7 @@ test_that("layer spec", {
   type <- "fill"
 
   # Act
-  layer <- Layer(
+  layer <- layer(
     id = id,
     type = type
   )

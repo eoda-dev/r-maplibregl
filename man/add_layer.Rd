@@ -9,7 +9,7 @@ add_layer(.map, layer, before_id = NULL)
 \arguments{
 \item{.map}{A \code{\link[=maplibre]{maplibre()}} HTML widget}
 
-\item{layer}{A \code{\link[=Layer]{Layer()}} object}
+\item{layer}{A \code{\link[=layer]{layer()}} object}
 
 \item{before_id}{The ID of an existing layer to insert the new layer before,
 resulting in the new layer appearing visually beneath the existing layer.
@@ -29,7 +29,7 @@ earthquakes_source <- list(
   data = "https://docs.mapbox.com/mapbox-gl-js/assets/earthquakes.geojson"
 )
 
-earthquakes_layer <- Layer(
+earthquakes_layer <- layer(
   id = "earthquakes",
   type = "circle",
   source = earthquakes_source,

@@ -12,7 +12,7 @@ nc_source <- list(
   data = geojsonsf::sf_geojson(nc)
 )
 
-nc_layer <- Layer(
+nc_layer <- layer(
   type = "line",
   id = "nc",
   source = nc_source

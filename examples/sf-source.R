@@ -6,7 +6,7 @@ bounds <- sf::st_bbox(nc) |>
   as.list()
 
 
-nc_layer <- Layer(
+nc_layer <- layer(
   type = "line",
   id = "nc",
   source = "nc-polygons"

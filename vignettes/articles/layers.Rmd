@@ -32,7 +32,7 @@ nc_source <- list(
 ## Line
 
 ```{r}
-nc_layer <- Layer(
+nc_layer <- layer(
   type = "line",
   id = "nc",
   source = nc_source
@@ -45,7 +45,7 @@ maplibre(mapOptions(style = basemaps$carto$voyager, bounds = bounds)) |>
 ## Fill
 
 ```{r}
-nc_layer <- Layer(
+nc_layer <- layer(
   type = "fill",
   id = "nc",
   source = nc_source,

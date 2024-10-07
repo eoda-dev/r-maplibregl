@@ -30,7 +30,7 @@ pmtiles_source <- list(
 
 sources <- list(pmtiles = pmtiles_source)
 
-landuse <- Layer(
+landuse <- layer(
   id = "buildings",
   source = "pmtiles",
   "source-layer" = "landuse",
@@ -38,7 +38,7 @@ landuse <- Layer(
   paint = list("fill-color" = "steelblue")
 )
 
-roads <- Layer(
+roads <- layer(
   id = "roads",
   source = "pmtiles",
   "source-layer" = "roads",
