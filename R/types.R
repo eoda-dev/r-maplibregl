@@ -83,3 +83,24 @@ TYPES_SCALE_CONTROL_OPTIONS <- list(
   },
   unit = is.character
 )
+
+
+## Geolocation control ####
+
+TYPES_GEOLOCATION_CONTROL_OPTIONS <- list(
+  showAccuracyCircle = is.logical,
+  showUserLocation = is.logical,
+  trackUserLocation = is.logical
+)
+
+TYPES_FIT_BOUNDS_OPTIONS <- list(
+  linear = is.logical,
+  maxZoom = function(x){
+    is.integer(x) | x == round(x, 0)
+  },
+  offset = function(x){
+    (is.integer(x) | is.numeric(x)) & length(x) = 2
+  }
+
+)
+

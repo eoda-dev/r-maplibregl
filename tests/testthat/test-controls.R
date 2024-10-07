@@ -122,3 +122,34 @@ test_that("scale control", {
   expect_s3_class(m0, c("maplibre", "htmlwidget"))
   expect_s3_class(m1, c("maplibre", "htmlwidget"))
 })
+
+
+test_that("geolocator control", {
+  m0 <- maplibre(map_options()) |>
+    geolocate_control(position = "top-left",
+                      show_accuracy_circle = T,
+                      show_user_location = T,
+                      track_user_location = T,
+                      fit_bounds_options = list(list(linear = T)))
+
+  expect_equal(
+    m0$x$calls,
+    list(
+      list(
+        "addControl",
+        list(
+          "GeolocateControl",
+          list(
+            showAccuracyCircle = TRUE,
+            showUserLocation = TRUE,
+            trackUserLocation = TRUE,
+            FitBoundsOptions = list(linear = TRUE)
+          ),
+          "top-left"
+        )
+      )
+    )
+  )
+
+  expect_s3_class(m0, c("maplibre", "htmlwidget"))
+})

@@ -9,12 +9,12 @@
 #'
 #' @example examples/basemap.R
 add_control <- function(.map, control_name = c(
-                          "NavigationControl",
-                          "ScaleControl", "FullscreenControl",
-                          "GeolocateControl", "AttributionControl"
-                        ),
-                        control_position = c("top-left", "top-right", "bottom-left", "bottom-right"),
-                        ...) {
+  "NavigationControl",
+  "ScaleControl", "FullscreenControl",
+  "GeolocateControl", "AttributionControl"
+),
+control_position = c("top-left", "top-right", "bottom-left", "bottom-right"),
+...) {
   control_name <- match.arg(control_name)
   control_position <- match.arg(control_position)
   .map |>
@@ -90,4 +90,53 @@ scale_control <- function(.map,
   )
 
   do.call(add_control, args = list(.map = .map) |> append(options))
+}
+
+
+#' A GeolocateControl control provides a button that uses the browser's geolocation API to locate the user on the map.
+#'
+#' @inherit add_control params return
+#' @inherit navigation_control params
+#' @param show_accuracy_circle By default, if showUserLocation is true, a transparent circle will be drawn around the user location indicating the accuracy (95% confidence level) of the user's location. Set to FALSE to disable. Always disabled when showUserLocation is FALSE.
+#' @param show_user_location By default a dot will be shown on the map at the user's location. Set to FALSE to disable.
+#' @param track_user_location If TRUE the GeolocateControl becomes a toggle button and when active the map will receive updates to the user's location as it changes.
+#' @param fit_bounds_options A options object to use when the map is panned and zoomed to the user's location. The default is to use a maxZoom of 15 to limit how far the map will zoom in for very accurate locations.
+#' @param position_options Optional Geolocation APIs options
+#'
+#' @export
+#'
+#' @example examples/controls.R
+geolocate_control <- function(.map,
+                              position = c("top-left", "top-right", "bottom-left", "bottom-right"),
+                              show_accuracy_circle = FALSE,
+                              show_user_location = FALSE,
+                              track_user_location = FALSE,
+                              fit_bounds_options = NULL,
+                              position_options = NULL){
+
+  control_options <- c(
+    rdantic(
+      list(
+        showAccuracyCircle = show_accuracy_circle,
+        showUserLocation = show_user_location,
+        trackUserLocation = track_user_location
+      ),
+      TYPES_GEOLOCATION_CONTROL_OPTIONS
+    ),
+    FitBoundsOptions = rdantic(
+      fit_bounds_options, TYPES_FIT_BOUNDS_OPTIONS
+    )
+
+  )
+
+  control_position <- match.arg(position)
+  options <- purrr::compact(
+    c(
+      control_name = "GeolocateControl", control_position = control_position,
+      control_options
+    )
+  )
+
+  do.call(add_control, args = list(.map = .map) |> append(options))
+
 }
