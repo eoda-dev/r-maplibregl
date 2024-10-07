@@ -1,3 +1,6 @@
+# Types ####
+
+## Basemap Style ####
 TYPES_BASEMAP_STYLE <- list(
   name = is.character,
   version = is.integer,
@@ -5,6 +8,7 @@ TYPES_BASEMAP_STYLE <- list(
   layers = is.list
 )
 
+## Layer ####
 TYPES_LAYER <- list(
   type = is.character,
   id = is.character,
@@ -15,6 +19,7 @@ TYPES_LAYER <- list(
   layout = is.list
 )
 
+## Map options ####
 TYPES_MAP_OPTIONS <- list(
   style = function(x) {
     is.list(x) | is.character(x)
@@ -60,4 +65,13 @@ TYPES_MAP_OPTIONS <- list(
   zoom = function(x) {
     is.integer(x) | is.numeric(x)
   }
+)
+
+
+## Navigation control ####
+
+TYPES_NAVIGATION_CONTROL_OPTIONS <- list(
+  showCompass = is.logical,
+  showZoom = is.logical,
+  visualizePitch = is.logical
 )
