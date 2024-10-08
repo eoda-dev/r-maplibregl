@@ -1,4 +1,4 @@
-nc <- sf::st_read(system.file("shape/nc.shp", package="sf"))
+nc <- sf::st_read(system.file("shape/nc.shp", package = "sf"))
 
 # Wrong CRS
 bounds <- sf::st_bbox(nc) |>
