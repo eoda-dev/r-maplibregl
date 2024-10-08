@@ -1,21 +1,14 @@
-nc <- sf::st_read(system.file("shape/nc.shp", package="sf")) |>
-  sf::st_transform("EPSG:4236")
+nc <- sf::st_read(system.file("shape/nc.shp", package="sf"))
 
-# sf::st_crs(nc)
+sf::st_crs(nc)
+sf::st_bbox(nc)
 
-bounds <- sf::st_bbox(nc) |>
-  unname() |>
-  as.list()
-
-nc_source <- list(
-  type = "geojson",
-  data = geojsonsf::sf_geojson(nc)
-)
+bounds <- sf::st_bbox(nc) |> bbox_as_bounds()
 
 nc_layer <- layer(
   type = "line",
   id = "nc",
-  source = nc_source
+  source = nc
 )
 
 maplibre(map_options(style = basemaps$carto$voyager, bounds = bounds)) |>

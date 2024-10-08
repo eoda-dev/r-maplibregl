@@ -2,7 +2,7 @@
 % Please edit documentation in R/maplibre.R
 \name{map_options}
 \alias{map_options}
-\title{Add Map Options to a Map Object}
+\title{Map Options}
 \usage{
 map_options(
   style = maplibre::basemaps$carto$dark_matter,
@@ -87,7 +87,7 @@ map_options(
 A list of map options.
 }
 \description{
-Add Map Options to a Map Object
+Map Options
 }
 \examples{
 map_options <- map_options(

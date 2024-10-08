@@ -25,7 +25,7 @@ TYPES_MAP_OPTIONS <- list(
     is.integer(x) | is.numeric(x)
   },
   bearingSnap = is.integer,
-  bounds = is.list,
+  bounds = function(x) is.list(x) | is.vector(x, "double"),
   boxZoom = is.logical,
   center = is.numeric,
   clickTolerance = function(x) {
@@ -40,7 +40,9 @@ TYPES_MAP_OPTIONS <- list(
   interactive = is.logical,
   keyboard = is.logical,
   maplibreLogo = is.logical,
-  maxBounds = is.list,
+  maxBounds = function(x) {
+    is.list(x) | is.vector(x)
+  },
   maxPitch = function(x) {
     is.integer(x) | x == round(x, 0)
   },
@@ -53,11 +55,7 @@ TYPES_MAP_OPTIONS <- list(
   minZoom = function(x) {
     is.integer(x) | x == round(x, 0)
   },
-  pitch = function(x) {
-    is.integer(x) | x == round(x, 0)
-  },
+  pitch = is.numeric,
   scrollZoom = is.logical,
-  zoom = function(x) {
-    is.integer(x) | is.numeric(x)
-  }
+  zoom = is.numeric
 )

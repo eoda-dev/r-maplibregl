@@ -33,7 +33,7 @@ Marker <- function(lng_lat, popup = NULL, ...) {
 #'
 #' @example examples/markers.R
 marker_options <- function(anchor = NULL, color = NULL, pitchAlignment = NULL, rotationAlignment = NULL,
-                          draggable = NULL, rotation = NULL, scale = NULL, ...) {
+                           draggable = NULL, rotation = NULL, scale = NULL, ...) {
   marker_options <- list(...)
   stopifnot(sapply(marker_options[c("anchor", "color", "pitchAlignment", "rotationAlignment")], function(x) {
     is.null(x) | is.character(x)
