@@ -13,16 +13,28 @@ maplibre(map_options()) |>
 
 maplibre(map_options()) |>
   scale_control(
-    position = "top-left",
+    position = "bottom-left",
     max_width = 200,
     unit = "metric"
   )
 # Add Geolocate control
 
 maplibre(map_options()) |>
-  add_control(control_name = "GeolocateControl", control_position = "top-left")
+  add_control(control_name = "GeolocateControl")
+
 
 
 maplibre(map_options()) |>
-  geolocate_control(position = "top-left",show_accuracy_circle = TRUE, show_user_location = TRUE,
+  geolocate_control(position = "bottom-right",show_accuracy_circle = TRUE, show_user_location = TRUE,
                     track_user_location = TRUE, fit_bounds_options = list(linear = FALSE))
+
+
+# Add Fullscreen control
+
+maplibre(map_options()) |>
+  add_control(control_name = "FullscreenControl",list(NULL), control_position = "bottom-right")
+
+maplibre(map_options())|>
+  fullscreen_control(position = "bottom-left")
+
+

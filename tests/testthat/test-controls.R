@@ -153,3 +153,25 @@ test_that("geolocator control", {
 
   expect_s3_class(m0, c("maplibre", "htmlwidget"))
 })
+
+
+test_that("fullscreen_control", {
+  m0 <- maplibre(map_options()) |>
+    fullscreen_control(position = "top-left")
+
+  expect_equal(
+    m0$x$calls,
+    list(
+      list(
+        "addControl",
+        list(
+          "FullscreenControl",
+          list(""),
+          "top-left"
+        )
+      )
+    )
+  )
+
+  expect_s3_class(m0, c("maplibre", "htmlwidget"))
+})

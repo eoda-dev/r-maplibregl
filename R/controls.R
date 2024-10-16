@@ -81,6 +81,9 @@ scale_control <- function(.map,
     TYPES_SCALE_CONTROL_OPTIONS
   )
 
+  if(length(control_options)==0){
+    control_options <- list("")
+  }
   control_position <- match.arg(position)
   options <- purrr::compact(
     c(
@@ -128,6 +131,9 @@ geolocate_control <- function(.map,
     )
 
   )
+  if(length(control_options)==0){
+    control_options <- list("")
+  }
 
   control_position <- match.arg(position)
   options <- purrr::compact(
@@ -138,5 +144,34 @@ geolocate_control <- function(.map,
   )
 
   do.call(add_control, args = list(.map = .map) |> append(options))
+}
+
+
+
+#' A FullscreenControl control contains a button for toggling the map in and out of fullscreen mode
+#'
+#' @inherit add_control params return
+#' @inherit navigation_control params
+#'
+#' @export
+#'
+#' @example examples/controls.R
+fullscreen_control <- function(.map,
+                               position = c("top-left", "top-right", "bottom-left", "bottom-right"),
+                               ...){
+
+  control_options <- list(...)
+  if(length(control_options)==0){
+    control_options <- list("")
+  }
+  control_position <- match.arg(position)
+  options <- purrr::compact(
+    c(
+      control_name = "FullscreenControl", control_position = control_position,
+      control_options
+      )
+  )
+
+  do.call(add_control, args = (list(.map = .map) |> append(options)))
 
 }
